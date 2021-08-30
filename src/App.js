@@ -11,7 +11,7 @@ function App() {
   const [greeting, setGreetingValue] = useSate()
 
   async function requestAccount(){
-await window.ethereum.request({ method: 'eth_requestAccount'});
+    await window.ethereum.request({ method: 'eth_requestAccount'});
   }
 
 
@@ -33,8 +33,8 @@ if (typeof window.ethreum !== 'undefined'){
 await requestAccount()
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 const signer = provider.getSigner()
-const contrat = new ethers.Contract(greeterAddress, Greeter.abi, signer)
-const transaction = await Contract.setGreeting(greeting)
+const contract = new ethers.Contract(greeterAddress, Greeter.abi, signer)
+const transaction = await contract.setGreeting(greeting)
 await transaction.wait()
 fetchGreeting()
 
